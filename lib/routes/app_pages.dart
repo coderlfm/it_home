@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:it_home/app.dart';
+import 'package:it_home/app/app_page.dart';
+import 'package:it_home/app/app_bindings.dart';
 import 'package:it_home/pages/circle/circle_bindings.dart';
 import 'package:it_home/pages/circle/circle_page.dart';
 import 'package:it_home/pages/home/home_bindings.dart';
@@ -20,7 +21,8 @@ class AppPages {
   static final routes = [
     GetPage(
       name: AppRoutes.MAIN,
-      page: () => App(),
+      page: () => AppPage(),
+      binding: AppBindings(),
     ),
     GetPage(
       name: AppRoutes.LOGIN,

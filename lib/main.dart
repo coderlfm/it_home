@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:it_home/app/app_bindings.dart';
 import 'package:it_home/common/theme.dart';
 
 import 'routes/app_pages.dart';
@@ -14,6 +15,7 @@ void main() {
       theme: LightTheme,
       darkTheme: DarkTheme,
       themeMode: ThemeMode.system,
+      initialBinding: AppBindings(),
     ),
   );
 }

@@ -9,23 +9,23 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<HomeController>();
+
     return Scaffold(
       appBar: buildAppBar(context, leading: Text('it 之家'), trailing: Icon(Icons.add)),
       body: SingleChildScrollView(
         child: Column(
           children: [
             CarouselSlider(
-              options: CarouselOptions(viewportFraction: 1, aspectRatio: .8, autoPlay: true),
-              items: [Text('111'), Text('222')],
-              // items: logic.detail?.imageList.map((item) {
-              //   return Image.network(
-              //     item.url,
-              //     width: double.infinity,
-              //     // height: 400,
-              //     fit: BoxFit.cover,
-              //   );
-              // }).toList(),
-            )
+              options: CarouselOptions(viewportFraction: 1, aspectRatio: .8, autoPlay: true, height: 300),
+              items: [Text('轮播1'), Text('轮播2')],
+            ),
+            GetBuilder<HomeController>(builder: (controller) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(controller.newsList.length, (index) => Text(controller.newsList[index].title)),
+              );
+            })
           ],
         ),
       ),
