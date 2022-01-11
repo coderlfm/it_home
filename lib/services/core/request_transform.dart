@@ -10,7 +10,7 @@ abstract class RequestTransformer {
 class DefaultRequestTransformer extends RequestTransformer {
   @override
   RequestResponse parse(Response response) {
-    return RequestResponse.success(response.data["data"]);
+    return RequestResponse.success(response.data);
   }
 
   /// 单例对象
