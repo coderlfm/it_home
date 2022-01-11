@@ -3,6 +3,8 @@ import 'package:it_home/app/app_page.dart';
 import 'package:it_home/app/app_bindings.dart';
 import 'package:it_home/pages/circle/circle_bindings.dart';
 import 'package:it_home/pages/circle/circle_page.dart';
+import 'package:it_home/pages/detail/detail_bindings.dart';
+import 'package:it_home/pages/detail/detail_page.dart';
 import 'package:it_home/pages/home/home_bindings.dart';
 import 'package:it_home/pages/home/home_page.dart';
 import 'package:it_home/pages/login/login_bindings.dart';
@@ -43,6 +45,11 @@ class AppPages {
       name: AppRoutes.PROFILE,
       page: () => ProfilePage(),
       binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: AppRoutes.DETAIL,
+      page: () => DetailPage(),
+      binding: DetailBindings(),
     ),
   ];
 }

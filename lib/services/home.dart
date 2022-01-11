@@ -1,5 +1,5 @@
 import 'package:it_home/model/news.dart';
-import 'package:it_home/services/banner.dart';
+import 'package:it_home/model/banner.dart';
 
 import 'client_request.dart';
 import 'core/request_transform.dart';

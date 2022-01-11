@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:it_home/model/news.dart';
-import 'package:it_home/services/banner.dart';
+import 'package:it_home/model/banner.dart';
 import 'package:it_home/services/home.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

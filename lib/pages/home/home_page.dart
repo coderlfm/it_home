@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:it_home/extensions/int.dart';
 import 'package:it_home/model/news.dart';
+import 'package:it_home/routes/app_pages.dart';
+import 'package:it_home/routes/app_routes.dart';
 import 'package:it_home/widgets/appbar/appbar.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import './home_controller.dart';
@@ -76,35 +78,35 @@ class NewsItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final date = newsItem.postdate;
-    // String timestamp =
-    //     "${date.year.toString()}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}";
-
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: IntrinsicHeight(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(borderRadius: BorderRadius.circular(4), child: Image.network(newsItem.image, width: 200.rpx)),
-            SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(newsItem.title),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(formatDate(DateTime.parse(newsItem.postdate), [HH, ':', nn])),
-                      Text('${newsItem.commentcount} 评')
-                    ],
-                  )
-                ],
+    return GestureDetector(
+      // 跳转详情
+      onTap: () => Get.toNamed('${AppRoutes.DETAIL}?newsId=${newsItem.newsid}', arguments: {"title": newsItem.title}),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(borderRadius: BorderRadius.circular(4), child: Image.network(newsItem.image, width: 200.rpx)),
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(newsItem.title),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(formatDate(DateTime.parse(newsItem.postdate), [HH, ':', nn])),
+                        Text('${newsItem.commentcount} 评')
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
